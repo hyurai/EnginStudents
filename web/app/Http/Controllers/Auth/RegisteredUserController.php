@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use App\Models\Profile;
 
 class RegisteredUserController extends Controller
 {
@@ -49,6 +50,8 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(RouteServiceProvider::HOME);
+        Profile::create(['user_id' => $user->id]);
+
+        return redirect('/tweet');
     }
 }

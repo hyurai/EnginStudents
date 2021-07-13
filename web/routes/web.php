@@ -22,3 +22,6 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+Route::resource('/tweet','App\Http\Controllers\TweetsController',['except' => ['edit','update']]);
+Route::resource('/profile','App\Http\Controllers\ProfilesController',['except' => ['create','edit']]);

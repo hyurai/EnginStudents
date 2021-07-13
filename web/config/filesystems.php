@@ -35,6 +35,8 @@ return [
             'root' => storage_path('app'),
         ],
 
+        'cloud' => env('FILESYSTEM_CLOUD', 's3'),
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
