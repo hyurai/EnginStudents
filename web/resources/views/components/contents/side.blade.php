@@ -8,10 +8,7 @@
       </form>
       </h3>
       <h3><a href="/profile/{{Auth::id()}}">マイページ</a></h3>
-      <h3>インターン情報</h3>
-      <h3>おすすめの教材</h3>
-
-      
+      <h3><a href="/tweet/create">公式アカウント</a></h3>
       <h3><a class = "js-modal-open" data-target = "modal01">投稿</a></h3>
 
       <div id = "modal01" class = "c-modal js-modal">
@@ -38,7 +35,20 @@
               <input type="date" name = "entry_data">
               <input type="date" name = "start_data">
               <input type="date" name = "end_data">
+
+
+              <div id = "input_pluraBox">
+                <div id = "input_plural">
+                  <input type="text" placeholder="サンプルテキストサンプルテキストサンプルテキスト" name = "skills[]" multipl>
+                  <input type="button" value = "+" class = "add pluraBtn">
+                  <input type="button" value = "-" class = "del pluraBtn">
+                </div>
+              </div>
+
+              
               <input type="submit" value = "Tweet">
+
+              
               </div>
             </form>
           </div>
@@ -77,7 +87,7 @@
 
 
       <h3><a href="/icon">アイコン一覧</a></h3>
-      <h3>いいね一覧</h3>
+      <h3><a href="/tweet/like/{{Auth::id()}}">いいね一覧</a></h3>
     @else
       <h3><a href="/register">新規登録</a></h3>
       <h3><a href="/login">ログイン</a></h3>
@@ -85,3 +95,17 @@
   </div>
 </div>
 
+<script>
+$(document).ready(function(){
+  $(document).on("click",".add",function(){
+    $(this).parent().clone(true).insertAfter($(this).parent());
+  });
+  $(document).on("click",".del",function(){
+    var target = $(this).parent();
+    if(target.parent().children().length > 1){
+      target.remove();
+    }
+  });
+});
+
+</script>

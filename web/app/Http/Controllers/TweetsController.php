@@ -8,6 +8,8 @@ use App\Models\User;
 use App\Models\Like;
 use App\Models\Hashtag;
 use App\Models\TweetHashtagRelation;
+use App\Models\Profile;
+use App\Models\Skill;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -18,7 +20,14 @@ class TweetsController extends Controller
         $user = User::all();
         $tweets = Tweet::all();
         $likes = Like::all();
-        return view('tweets.index',compact('tweets','user','likes'));
+        $profile = Profile::all();
+        return view('tweets.index',compact('tweets','user','likes','profile'));
+    }
+
+    public function create(){
+        $tweets = Tweet::where('user_id',1);
+
+        return view('tweets.create',compact('tweets'));
     }
     public function store(Request $request)
     {
@@ -30,6 +39,7 @@ class TweetsController extends Controller
         $tweet->entry_data = $request->entry_data;
         $tweet->start_data = $request->start_data;
         $tweet->end_data = $request->end_data;
+        $skills = $request->skills;
         
         preg_match_all('/#([a-zA-z0-9０-９ぁ-んァ-ヶ亜-熙]+)/u', $request->text, $match);
         $replace_text = preg_replace('/#([a-zA-z0-9０-９ぁ-んァ-ヶ亜-熙]+)/u','',$request->text);
@@ -50,6 +60,11 @@ class TweetsController extends Controller
             $tweethastagrealtion->hashtag_id = $tag->id;
             $tweethastagrealtion->save();
         }
+
+        foreach($skills as $skillname){
+            $skill = Skill::firstOrCreate(['name' => $skillname]); 
+        }
+
         return redirect('/tweet');
     }
     public function show($id)

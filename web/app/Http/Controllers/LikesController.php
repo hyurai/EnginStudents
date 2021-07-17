@@ -4,9 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Like;
+use App\Models\User;
 
 class LikesController extends Controller
 {
+    public function show($id)
+    {
+        $user = User::find($id);
+        $tweets = $user->like_tweets;
+        
+        return view('likes.show',compact('tweets'));
+    }
+    
+    
+    
     public function store(Request $request)
     {
         $like = new Like;

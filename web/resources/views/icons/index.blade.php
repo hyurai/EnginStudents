@@ -7,6 +7,12 @@
     @component('components.contents.side')
     @endcomponent
     <div>
+
+
+
+
+
+    
     </div>
   </div>
 </div>

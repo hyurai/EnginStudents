@@ -25,7 +25,7 @@ require __DIR__.'/auth.php';
 
 Route::resource('/tweet','App\Http\Controllers\TweetsController',['except' => ['edit','update']]);
 Route::resource('/profile','App\Http\Controllers\ProfilesController',['except' => ['create','edit']]);
-Route::resource('/tweet/like','App\Http\Controllers\LikesController',['only' => ['store','destroy']]);
+Route::resource('/tweet/like','App\Http\Controllers\LikesController',['only' => ['store','destroy','show']]);
 Route::resource('/tweet/comment','App\Http\Controllers\CommentsController',['only' => ['store','destroy']]);
 Route::resource('/icon','App\Http\Controllers\IconsController',['only' => ['index','store','destroy']]);
 Route::resource('/hashtag','App\Http\Controllers\HashtagsController',['only' => ['show']]);
