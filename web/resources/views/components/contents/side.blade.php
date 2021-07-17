@@ -10,9 +10,73 @@
       <h3><a href="/profile/{{Auth::id()}}">マイページ</a></h3>
       <h3>インターン情報</h3>
       <h3>おすすめの教材</h3>
-      <h3>投稿</h3>
-      <h3>アイコンを追加</h3>
-      <h3>アイコン一覧</h3>
+
+      
+      <h3><a class = "js-modal-open" data-target = "modal01">投稿</a></h3>
+
+      <div id = "modal01" class = "c-modal js-modal">
+        <div class="c-modal_bg js-modal-close"></div>
+        <div class = "c-modal_content _lg">
+          <div class = "c-modal_content_inner">
+            <a class = "js-modal-close c-modal_close" href=""><span>閉じる</span></a>
+            <form action="/tweet" method = "post" style = "margin:30px;">
+              @csrf
+              <input type="hidden" name = "user_id" value = "{{Auth::id()}}">
+              <input type="text" name = "title">
+              <div style = "display:flex;">
+                <input type="text" name = "company_name">
+                <select name="job">
+                  <option value="frontend">フロントエンド</option>
+                  <option value="backend">バックエンド</option>
+                  <option value="infra">インフラ</option>
+                  <option value="ios">ios</option>
+                  <option value="andoroid">andoroid</option>
+                </select>
+              </div>
+              <div style = " display: flex;flex-direction: column;">
+              <input type="text" name = "text">
+              <input type="date" name = "entry_data">
+              <input type="date" name = "start_data">
+              <input type="date" name = "end_data">
+              <input type="submit" value = "Tweet">
+              </div>
+            </form>
+          </div>
+        </div>
+        </div>
+
+
+      <h3><a href = "" class="js-modal-open-icon" data-target="modal-icon">アイコンを追加</a></h3>
+
+      <div id = "modal-icon" class = "c-modal-icon js-modal-icon">
+        <div class="c-modal_bg-icon js-modal-close-icon"></div>
+        <div class = "c-modal_content-icon _lg-icon">
+          <div class = "c-modal_content_inner-icon">
+            <a class = "js-modal-close-icon c-modal_close-icon" href=""><span>閉じる</span></a>
+            <form action="/icon" method = "post">
+              @csrf
+              <input type="text" name = "icon_class" placeholder="アイコンクラス">
+              <input type="text" name = "icon_name" placeholder="アイコンネーム">
+              <input type="submit" value = "追加">
+            </form>
+          </div>
+        </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <h3><a href="/icon">アイコン一覧</a></h3>
       <h3>いいね一覧</h3>
     @else
       <h3><a href="/register">新規登録</a></h3>
@@ -20,3 +84,4 @@
     @endauth
   </div>
 </div>
+
