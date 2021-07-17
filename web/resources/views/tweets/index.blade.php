@@ -40,6 +40,11 @@
               </div>
             </div>
             <p>{{$tweet->text}}</p>
+            @foreach($tweet->tweet_hashtag as $hashtag)
+              <form action="/hashtag/{{$hashtag->id}}" method = "get">
+                <input type="submit" value = "#{{$hashtag->name}}">
+              </form>
+            @endforeach
             <div class = "back-function" style = "display: flex;">
                @auth
                @if($likes->where('user_id',Auth::id())->where('tweet_id',$tweet->id)->first())
@@ -72,6 +77,8 @@
           </div>
         </div>
         @else
+
+        
         <div style = "border: solid 3px #000000;padding:20px;margin-right:120px;margin-left:120px;margin-bottom:20px;">
           <div style = "width:100%;display:flex;">
           <div class = "top-infomation" style = "width:10%;">
@@ -83,6 +90,11 @@
             <p style = "margin-top:0px;font-weight:bold;">{{$tweet->user->name}}</p>
             
             <p>{{$tweet->text}}</p>
+            @foreach($tweet->tweet_hashtag as $hashtag)
+              <form action="/hashtag/{{$hashtag->id}}" method = "get">
+                <input type="submit" value = "#{{$hashtag->hastag_name}}">
+              </form>
+            @endforeach
             <div class = "back-function" style = "display: flex;">
                @auth
                @if($likes->where('user_id',Auth::id())->where('tweet_id',$tweet->id)->first())

@@ -13,10 +13,10 @@ class CreateTweetHashtagRelationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tweet_hashtag_relations_', function (Blueprint $table) {
+        Schema::create('tweet_hashtag_relations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('tweet_id')->constrained();
-            $table->foreignId('hastag_id')->constrained();
+            $table->foreignId('hashtag_id')->constrained();
             $table->timestamps();
         });
     }

@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 use App\Models\Tweet;
 use App\Models\User;
 use App\Models\Like;
+use App\Models\Hashtag;
+use App\Models\TweetHashtagRelation;
+use Illuminate\Support\Facades\Hash;
+
+
 class TweetsController extends Controller
 {
     public function index()
@@ -25,9 +30,26 @@ class TweetsController extends Controller
         $tweet->entry_data = $request->entry_data;
         $tweet->start_data = $request->start_data;
         $tweet->end_data = $request->end_data;
-        $tweet->text = $request->text;
+        
+        preg_match_all('/#([a-zA-z0-9０-９ぁ-んァ-ヶ亜-熙]+)/u', $request->text, $match);
+        $replace_text = preg_replace('/#([a-zA-z0-9０-９ぁ-んァ-ヶ亜-熙]+)/u','',$request->text);
+
+        $tweet->text = $replace_text;
+        
+        $tags = [];
+        foreach($match[1] as $tag){
+            $record = Hashtag::firstOrCreate(['hastag_name' => $tag]);
+            array_push($tags,$record);
+        };
         $tweet->save();
 
+        foreach($tags as $tag)
+        {
+            $tweethastagrealtion = new TweetHashtagRelation;
+            $tweethastagrealtion->tweet_id = $tweet->id;
+            $tweethastagrealtion->hashtag_id = $tag->id;
+            $tweethastagrealtion->save();
+        }
         return redirect('/tweet');
     }
     public function show($id)

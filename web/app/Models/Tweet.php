@@ -23,4 +23,8 @@ class Tweet extends Model
     {
         return $this->hasMany('App\Model\Like');
     }
+    public function tweet_hashtag()
+    {
+        return $this->hasManyThrough('App\Models\Hashtag','App\Models\TweetHashtagRelation','tweet_id','id',null,'hashtag_id');
+    }
 }

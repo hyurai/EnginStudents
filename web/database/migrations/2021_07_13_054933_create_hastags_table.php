@@ -13,7 +13,7 @@ class CreateHastagsTable extends Migration
      */
     public function up()
     {
-        Schema::create('hastags', function (Blueprint $table) {
+        Schema::create('hashtags', function (Blueprint $table) {
             $table->id();
             $table->text('hastag_name');
             $table->timestamps();
