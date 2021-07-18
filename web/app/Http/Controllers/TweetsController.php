@@ -24,10 +24,37 @@ class TweetsController extends Controller
         return view('tweets.index',compact('tweets','user','likes','profile'));
     }
 
-    public function create(){
-        $tweets = Tweet::where('user_id',1);
+    public function create(Request $request){
+        $tweet_query = Tweet::query();
+        $profile = new Profile;
+        $likes = new Like;
+        $company_name = $request->company_name;
+        $job = $request->job;
+        $before_entry_data = $request->entry_data;
+        $before_start_data = $request->start_data;
 
-        return view('tweets.create',compact('tweets'));
+        
+        if(!empty($company_name)){
+            $tweets = $tweet_query->where('company_name','LIKE',"%{$company_name}%");
+        }
+        elseif(!empty($job)){
+            $tweets = $tweet_query->where('job','LIKE',"%{$job}%");
+        }
+        elseif(!empty($before_entry_data)){
+            $date = date_create($before_entry_data);
+            $entyr_date = date_format($date,'Y-m-d');
+            $tweets = $tweet_query->where('entry_data','>=',"%{$entyr_date}%");
+        }
+        elseif(!empty($before_start_data)){
+            $date = date_create($before_start_data);
+            $start_date = date_format($date,'Y-m-d');
+            $tweets = $tweet_query->where('start_data','>=',"%{$start_date}%");
+        }
+
+
+        $tweets = $tweet_query->where('user_id',1)->get();
+        
+        return view('tweets.create',compact('tweets','company_name','job','before_entry_data','before_start_data','profile','likes'));
     }
     public function store(Request $request)
     {
