@@ -7,9 +7,9 @@
         <input type="submit" value = "ログアウト" style = "border: none;">
       </form>
       </h3>
-      <h3><a href="/profile/{{Auth::id()}}">マイページ</a></h3>
-      <h3><a href="/tweet/create">公式アカウント</a></h3>
-      <h3><a class = "js-modal-open" data-target = "modal01">投稿</a></h3>
+      <h3><a href="/profile/{{Auth::id()}}" style = "text-decoration: none;color:black;">マイページ</a></h3>
+      <h3><a href="/tweet/create" style = "text-decoration: none;color:black;">公式アカウント</a></h3>
+      <h3><a class = "js-modal-open" data-target = "modal01" style = "text-decoration: none;color:black;">投稿</a></h3>
 
       <div id = "modal01" class = "c-modal js-modal">
         <div class="c-modal_bg js-modal-close"></div>
@@ -56,7 +56,7 @@
         </div>
 
 
-      <h3><a href = "" class="js-modal-open-icon" data-target="modal-icon">アイコンを追加</a></h3>
+      <h3><a href = "" class="js-modal-open-icon" data-target="modal-icon" style = "text-decoration: none;color:black;">アイコンを追加</a></h3>
 
       <div id = "modal-icon" class = "c-modal-icon js-modal-icon">
         <div class="c-modal_bg-icon js-modal-close-icon"></div>
@@ -86,11 +86,11 @@
 
 
 
-      <h3><a href="/icon">アイコン一覧</a></h3>
-      <h3><a href="/tweet/like/{{Auth::id()}}">いいね一覧</a></h3>
+      <h3><a href="/icon" style = "text-decoration: none;color:black;">アイコン一覧</a></h3>
+      <h3><a href="/tweet/like/{{Auth::id()}}" style = "text-decoration: none;color:black;">いいね一覧</a></h3>
     @else
-      <h3><a href="/register">新規登録</a></h3>
-      <h3><a href="/login">ログイン</a></h3>
+      <h3><a href="/register" style = "text-decoration: none;color:black;">新規登録</a></h3>
+      <h3><a href="/login" style = "text-decoration: none;color:black;">ログイン</a></h3>
     @endauth
   </div>
 </div>

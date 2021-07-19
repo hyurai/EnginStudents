@@ -26,6 +26,11 @@
           <p>一言コメント</p>
           <p>{{$profile->one_word_comment}}</p>
         </div>
+        <div>
+          @foreach($profile_icons as $profile_icon)
+            <p class = "fab {{$profile_icon->icon_class}}">{{$profile_icon->icon_name}}</p>
+          @endforeach
+        </div>
       </div>
     </div>
   </div>
@@ -64,6 +69,11 @@
                  <input type="text" name = "url" value = "{{$profile->url}}">
                  <p>一言コメント</p>
                  <input type="text" name = "one_word_comment" value = "{{$profile->one_word_comment}}">
+                </div>
+                <div>
+                  @foreach($icons as $icon)
+                  <input type="checkbox" name = "icons[]" value = "{{$icon->id}}"><p class = "fab {{$icon->icon_class}}">{{$icon->icon_name}}</p>
+                  @endforeach
                 </div>
               </div>
               <input type="submit" value = "アップデート">

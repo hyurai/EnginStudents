@@ -14,4 +14,8 @@ class Profile extends Model
     {
         return $this->belongsTo('App\Models\User');
     }
+    public function profile_icons()
+    {
+        return $this->hasManyThrough('App\Models\Icon','App\Models\ProfileIconRelation','profile_id','id',null,'icon_id');
+    }
 }

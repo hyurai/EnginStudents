@@ -15,7 +15,7 @@ class IconsController extends Controller
     {
         $icon = new Icon;
         $icon->icon_class = $request->icon_class;
-        $icon->icon_name = $request->icon_class;
+        $icon->icon_name = $request->icon_name;
         $icon->save();
         return back();
     }
