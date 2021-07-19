@@ -38,7 +38,7 @@ python demo.py
 ```
  
 # Note
-* PHP 7.4.1 
+* これから直していく箇所
 * PHP 7.4.1 
 
 
