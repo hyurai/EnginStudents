@@ -38,12 +38,5 @@ python demo.py
 # Note
  
 注意点などがあれば書く
- 
-# Author
- 
-作成情報を列挙する
- 
-* 作成者
-* 所属
-* E-mail
+
  
