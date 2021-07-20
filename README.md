@@ -8,6 +8,8 @@
 ![aaaa](https://user-images.githubusercontent.com/72079540/126267970-29f86d61-3f4b-4ccd-a6e7-7d76a784fc16.gif)
 
 マイページの編集機能
+![aaaa](https://user-images.githubusercontent.com/72079540/126269398-828c3ed1-9e17-4c89-8db2-d86cea703ace.gif)
+
  
 # このアプリオリジナルの機能
 * 企業の名前を検索するとその企業のインターンや新卒採用の情報を見ることが出来る。
