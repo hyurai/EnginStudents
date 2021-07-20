@@ -43,7 +43,7 @@
             <div class = "hastags" style = "display:flex;">
             @foreach($tweet->tweet_hashtag as $hashtag)
               <form action="/hashtag/{{$hashtag->id}}" method = "get">
-                <input type="submit" value = "#{{$hashtag->name}}" style = "border: none;color: rgb(27, 149, 224);">
+                <input type="submit" value = "#{{$hashtag->hastag_name}}" style = "border: none;color: rgb(27, 149, 224);">
               </form>
             @endforeach
             </div>

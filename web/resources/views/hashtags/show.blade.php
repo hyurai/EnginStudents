@@ -6,8 +6,11 @@
   <div style = "display:flex;">
     @component('components.contents.side')
     @endcomponent
-
+    
     <div class = "content_content" style = "width:65%;">
+      <div style = "display:flex;">
+        <h2 style = "margin-left:120px;">#{{$hashtag->hastag_name}}</h2>
+      </div> 
       @foreach($tweets as $tweet)
         @if(isset( $tweet->title ))
         <div style = "border: solid 3px #000000;padding:20px;margin-right:120px;margin-left:120px;margin-bottom:20px;">

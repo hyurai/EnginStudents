@@ -10,6 +10,7 @@ use App\Models\Hashtag;
 use App\Models\TweetHashtagRelation;
 use App\Models\Profile;
 use App\Models\Skill;
+use App\Models\TweetSkillRelation;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -89,7 +90,15 @@ class TweetsController extends Controller
         }
 
         foreach($skills as $skillname){
-            $skill = Skill::firstOrCreate(['name' => $skillname]); 
+            $skill = Skill::firstOrCreate(['name' => $skillname]);
+
+        }
+        foreach($skills as $skillname){
+            $skill = Skill::where('name',$skillname)->first();
+            $tweetskillrelation = new TweetSkillRelation;
+            $tweetskillrelation->tweet_id = $tweet->id;
+            $tweetskillrelation->skill_id = $skill->id;
+            $tweetskillrelation->save();
         }
 
         return redirect('/tweet');
