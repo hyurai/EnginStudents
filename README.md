@@ -5,6 +5,8 @@
 # 作ることが大変だった機能
  
 ハッシュタグ機能
+![aaaa](https://user-images.githubusercontent.com/72079540/126267970-29f86d61-3f4b-4ccd-a6e7-7d76a784fc16.gif)
+
 マイページの編集機能
  
 # このアプリオリジナルの機能
