@@ -20,6 +20,8 @@
  
 * PHP 7.4.1 
 * Laravel Framework 8.49.2
+* "league/flysystem-aws-s3-v3": "1.*"
+* "league/flysystem-cached-adapter": "~1.0"
  
 
  
