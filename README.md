@@ -4,20 +4,19 @@
  
 # 作ることが大変だった機能
  
-ハッシュタグ機能
-![aaaa](https://user-images.githubusercontent.com/72079540/126267970-29f86d61-3f4b-4ccd-a6e7-7d76a784fc16.gif)
+* ハッシュタグ機能
+* ![aaaa](https://user-images.githubusercontent.com/72079540/126267970-29f86d61-3f4b-4ccd-a6e7-7d76a784fc16.gif)
 
-マイページの編集機能
-![aaaa](https://user-images.githubusercontent.com/72079540/126269398-828c3ed1-9e17-4c89-8db2-d86cea703ace.gif)
+* マイページの編集機能
+* ![aaaa](https://user-images.githubusercontent.com/72079540/126269398-828c3ed1-9e17-4c89-8db2-d86cea703ace.gif)
 
  
 # このアプリオリジナルの機能
 * 企業の名前を検索するとその企業のインターンや新卒採用の情報を見ることが出来る。
 * 投稿
 * ![aaaa](https://user-images.githubusercontent.com/72079540/126273573-f4d8187b-1b26-428e-b263-611208e8790f.gif)
-
-* マイページにスキルを登録出来る。
-
+* 検索
+* ![aaa](https://user-images.githubusercontent.com/72079540/126276181-bfe4654a-5aa3-483f-91ee-d108bcfc9023.gif)
  
 # Requirement
  
