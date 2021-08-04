@@ -107,8 +107,9 @@ class TweetsController extends Controller
         $tweet = Tweet::findOrFail($id);
         $comments = $tweet->comments;
         $likes = Like::all();
+        $profiles = Profile::all();
 
-        return view('tweets.show',compact('tweet','comments','likes'));
+        return view('tweets.show',compact('tweet','comments','likes','profiles'));
     }
     public function destroy($id)
     {

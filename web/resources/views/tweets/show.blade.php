@@ -76,7 +76,7 @@
           <div style = "width:100%;display:flex;">
           <div class = "top-infomation" style = "width:10%;">
             <div style = "width:50px;height:50px;">
-              <img src="https://ferret.akamaized.net/uploads/article/6845/eyecatch/default-95e77d8922603c5a64085258c0cc3f96.png" style = "width:100%;height:100%;border-radius:50%;">
+              <img src="{{$profile->where('user_id',Auth::id())->first()->front_img}}" style = "width:100%;height:100%;border-radius:50%;">
             </div>
           </div>
           <div class = "back-infomation" style = "width:90%;">
