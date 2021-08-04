@@ -15,11 +15,11 @@
         <div style="padding-top:10px;">
           <select name="job" style = "width:400px;">
             <option hidden value = "">エンジニアの種類を選択してください</option>
-            <option value="フロントエンドエンジニア">フロントエンドエンジニア</option>
-            <option value="バックエンドエンジニア">バックエンドエンジニア</option>
-            <option value="インフラエンジニア">インフラエンジニア</option>
-            <option value="iosエンジニア">iosエンジニア</option>
-            <option value="Andoroidエンジニア">Andoroidエンジニア</option>
+            <option value="frontend">フロントエンドエンジニア</option>
+            <option value="backend">バックエンドエンジニア</option>
+            <option value="infra">インフラエンジニア</option>
+            <option value="ios">iosエンジニア</option>
+            <option value="andoroid">Andoroidエンジニア</option>
           </select>
         </div>
         <div style = "padding-top:10px;">
@@ -104,8 +104,8 @@
             </div>
             <div class = "back-function" style = "display: flex;">
                @auth
-               @if($likes->where('user_id',Auth::id())->where('tweet_id',$tweet->id)->first())
-                 <form action="/tweet/like/{{$likes->where('user_id',Auth::id())->where('tweet_id',$tweet->id)->first()->id}}" method = "post" style = "width:33%;">
+               @if($tweet->liked(Auth::id(),$tweet->id))
+                 <form action="/tweet/like/{{$tweet->liked(Auth::id(),$tweet->id)->id}}" method = "post" style = "width:33%;">
                    @csrf
                    @method('DELETE')
                    <input type="submit" value = "&#xf004;" style = "font-family: FontAwesome;color:red;border: none;">

@@ -21,8 +21,8 @@ class TweetsController extends Controller
         $user = User::all();
         $tweets = Tweet::all();
         $likes = Like::all();
-        $profile = Profile::all();
-        return view('tweets.index',compact('tweets','user','likes','profile'));
+        $profiles = Profile::all();
+        return view('tweets.index',compact('tweets','user','likes','profiles'));
     }
 
     public function create(Request $request){
