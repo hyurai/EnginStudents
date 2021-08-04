@@ -91,7 +91,6 @@ class TweetsController extends Controller
 
         foreach($skills as $skillname){
             $skill = Skill::firstOrCreate(['name' => $skillname]);
-
         }
         foreach($skills as $skillname){
             $skill = Skill::where('name',$skillname)->first();
@@ -114,6 +113,18 @@ class TweetsController extends Controller
     public function destroy($id)
     {
         $tweet = Tweet::findOrFail($id);
+        $tweethastagrealtions = TweetHashtagRelation::where('tweet_id',$tweet->id)->get();
+        foreach($tweethastagrealtions as $tweethastagrealtion){
+            $tweethastagrealtion->delete();
+        }
+        $likes = Like::where('tweet_id',$tweet->id)->get();
+        foreach($likes as $like){
+            $like->delete();
+        }
+        $tweetskillrelations = TweetSkillRelation::where('tweet_id',$tweet->id)->get();
+        foreach($tweetskillrelations as $tweetskillrelation){
+            $tweetskillrelation->delete();
+        }
         $tweet->delete();
         return redirect('/tweet');
     }
