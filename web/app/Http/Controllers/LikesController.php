@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Like;
 use App\Models\User;
+use App\Models\Profile;
 
 class LikesController extends Controller
 {
@@ -12,8 +13,8 @@ class LikesController extends Controller
     {
         $user = User::find($id);
         $tweets = $user->like_tweets;
-        
-        return view('likes.show',compact('tweets'));
+        $profiles = Profile::all();
+        return view('likes.show',compact('tweets','profiles'));
     }
     
     
