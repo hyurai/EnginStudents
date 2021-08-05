@@ -3,6 +3,8 @@
   <link rel="stylesheet" href="{{ asset('css/tweet.css') }}">
   <link rel="stylesheet" href="{{ asset('css/icon.css') }}">
   <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/components.css') }}">
+
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
