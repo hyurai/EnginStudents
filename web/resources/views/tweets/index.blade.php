@@ -6,11 +6,12 @@
   <div style = "display:flex;">
     @component('components.contents.side')
     @endcomponent
-    @component('components.contents.content')
-     @slot('tweets',$tweets)
-     @slot('profiles',$profiles)
-     @slot('likes',$likes)
-    @endcomponent
+    <div class = "content_content" style = "width:65%;">
+      @component('components.contents.content')
+       @slot('tweets',$tweets)
+       @slot('profiles',$profiles)
+      @endcomponent
+    </div>
   </div>
 
 </div>

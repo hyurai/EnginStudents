@@ -12,8 +12,8 @@ class HashtagsController extends Controller
     public function show($id){
         $hashtag = Hashtag::find($id);
         $tweets = $hashtag->hashtag_tweets;
-        $profile = Profile::all();
+        $profiles = Profile::all();
         $likes = Like::all();
-        return view('hashtags.show',compact('hashtag','tweets','profile','likes'));  
+        return view('hashtags.show',compact('hashtag','tweets','profiles','likes'));  
     }
 }

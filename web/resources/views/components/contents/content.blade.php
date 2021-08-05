@@ -1,7 +1,4 @@
-<div class = "content_content" style = "width:65%;">
-      
       @foreach($tweets as $tweet)
-      
         @if(isset( $tweet->title ))
         <div style = "border: solid 3px #000000;padding:20px;margin-right:120px;margin-left:120px;margin-bottom:20px;">
           <div style = "width:100%;display:flex;">
@@ -108,7 +105,7 @@
             <div class = "back-function" style = "display: flex;">
                @auth
                @if($tweet->liked(Auth::id(),$tweet->id))
-                 <form action="/tweet/like/{{$tweet->liked(Auth::id(),$tweet->id)}}" method = "post" style = "width:33%;">
+                 <form action="/tweet/like/{{$tweet->liked(Auth::id(),$tweet->id)->id}}" method = "post" style = "width:33%;">
                    @csrf
                    @method('DELETE')
                    <input type="submit" value = "&#xf004;" style = "font-family: FontAwesome;color:red;border: none;">
@@ -138,4 +135,3 @@
         </div>
         @endif
       @endforeach
-    </div>

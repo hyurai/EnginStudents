@@ -27,7 +27,7 @@ class TweetsController extends Controller
 
     public function create(Request $request){
         $tweet_query = Tweet::query();
-        $profile = new Profile;
+        $profiles = new Profile;
         $likes = new Like;
         $company_name = $request->company_name;
         $job = $request->job;
@@ -55,7 +55,7 @@ class TweetsController extends Controller
 
         $tweets = $tweet_query->where('user_id',1)->get();
         
-        return view('tweets.create',compact('tweets','company_name','job','before_entry_data','before_start_data','profile','likes'));
+        return view('tweets.create',compact('tweets','company_name','job','before_entry_data','before_start_data','profiles','likes'));
     }
     public function store(Request $request)
     {
