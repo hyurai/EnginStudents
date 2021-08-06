@@ -1,11 +1,13 @@
-
-      
         @foreach($tweets as $tweet)
           <div class = "content">
             <div class = "content_framework">
             <div class = "top-infomation">
               <div class = "img_framework">
+                @if($profiles->where('user_id',$tweet->user_id)->first()->front_img)
                 <img src="{{$profiles->where('user_id',$tweet->user_id)->first()->front_img}}">
+                @else
+                <img src="" alt="">
+                @endif
               </div>
             </div>
             <div class = "back-infomation">

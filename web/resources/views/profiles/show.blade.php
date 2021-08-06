@@ -15,7 +15,11 @@
       <div class = "front_info">
         <div style = "display:flex;">
           <div style = "width:100px;height:100px;">
-            <img src="{{$profile->front_img}}" style = "width:100%;height:100%;border-radius:50%;"">
+            @if($profile->front_img)
+              <img src="{{$profile->front_img}}" style = "width:100%;height:100%;border-radius:50%;">
+            @else
+            <img src="download.png" style = "width:100%;height:100%;border-radius:50%;">
+            @endif
           </div>
           <p>{{$user->name}}</p>
           <a href="" class = "js-modal-open-profile" data-target = "modal-profile"><i class="fas fa-edit"></i></a>

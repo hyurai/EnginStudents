@@ -50,7 +50,9 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        Profile::create(['user_id' => $user->id]);
+        $profile = Profile::create([
+            'user_id' => $user->id,
+            ]);
 
         return redirect('/tweet');
     }

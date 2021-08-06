@@ -16,6 +16,7 @@
         <div class = "c-modal_content _lg">
           <div class = "c-modal_content_inner">
             <a class = "js-modal-close c-modal_close" href=""><span>閉じる</span></a>
+            <div class = "master_tweet">
             <form action="/tweet" method = "post" style = "margin:30px;">
               @csrf
               <input type="hidden" name = "user_id" value = "{{Auth::id()}}">
@@ -51,6 +52,8 @@
               
               </div>
             </form>
+            </div>
+            
           </div>
         </div>
         </div>
