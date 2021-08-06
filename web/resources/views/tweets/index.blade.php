@@ -1,12 +1,12 @@
 @extends('layouts.content')
 @section('content')
-<div class = "content_main" style = "width:100%;">
+<div class = "content_main">
   @component('components.contents.head')
   @endcomponent
-  <div style = "display:flex;">
+  <div class = "content_include_side">
     @component('components.contents.side')
     @endcomponent
-    <div class = "content_content" style = "width:65%;">
+    <div class = "content_content">
       @component('components.contents.content')
        @slot('tweets',$tweets)
        @slot('profiles',$profiles)

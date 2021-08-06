@@ -1,59 +1,48 @@
-
-
-
-
-
-
-
-
-
-
-.c-modal{
-    display: none;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1;
+.content_main{
+    width:100%;
 }
-.c-modal_bg{
-    background: rgba(0, 0, 0, 0.6);
-    height: 100vh;
-    width: 100%;
+.content_include_side{
+    display:flex;
 }
-.c-modal_content{
-    background: #fff;
-    left: 50%;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 5px;
+.content_content{
+    width:65%;
 }
-
-
-
-.c-modal-comment{
-    display: none;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 1;
+.serach_form{
+    margin-right:120px;
+    margin-left:120px;
 }
-.c-modal_bg-comment{
-    background: rgba(0, 0, 0, 0.6);
-    height: 100vh;
-    width: 100%;
+.input_company{
+    width:400px;
+    height:40px;
 }
-.c-modal_content-comment{
-    background: #fff;
-    left: 50%;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 5px;
+.job_areas{
+    padding-top:10px;
+}
+.job{
+    width:400px;
+}
+.date_search_areas{
+    padding-top:10px;
+}
+.entry_date_search{
+    width:198px;
+}
+.start_date_search{
+    width:198px;
+}
+.search-area{
+    padding-top:20px;
+}
+.search-button{
+    width:200px;
+}
+.results{
+    display:flex;
+}
+.result{
+    display: flex;
+    flex-direction: column;
+}
+h4{
+    margin:0px;
 }

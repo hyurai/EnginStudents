@@ -1,19 +1,19 @@
 @extends('layouts.content')
 @section('content')
-<div class = "content_main" style = "width:100%;">
+<div class = "content_main">
   @component('components.contents.head')
   @endcomponent
-  <div style = "display:flex;">
+  <div class = "content_include_side">
     @component('components.contents.side')
     @endcomponent
-    <div class = "content_content" style = "width:65%;">
-      <div class = "serach_form" style = "margin-right:120px;margin-left:120px;">
+    <div class = "content_content">
+      <div class = "serach_form">
        <form action="/tweet/create" method = "get">
        <div>
-          <input type="text" name = "company_name" placeholder="会社名を入力してください" style = "width:400px;height:40px;">
+          <input class = "input_company" type="text" name = "company_name" placeholder="会社名を入力してください">
         </div>
-        <div style="padding-top:10px;">
-          <select name="job" style = "width:400px;">
+        <div class = "job_areas">
+          <select  class = "job"name="job">
             <option hidden value = "">エンジニアの種類を選択してください</option>
             <option value="frontend">フロントエンドエンジニア</option>
             <option value="backend">バックエンドエンジニア</option>
@@ -22,39 +22,38 @@
             <option value="andoroid">Andoroidエンジニア</option>
           </select>
         </div>
-        <div style = "padding-top:10px;">
-          <input type="date" name = "entry_data" style = "width:198px;">
-          <input type="date" name = "start_data" style = "width:198px;">
+        <div class = "date_search_areas">
+          <input class = "entry_date_search"type="date" name = "entry_data">
+          <input class = "start_date_search"type="date" name = "start_data">
         </div>
-        <div style = "padding-top:20px;">
-          <input type="submit" value = "検索" style = "width:200px;">
+        <div class = "search-area">
+          <input class = "search-button" type="submit" value = "検索">
         </div>
        </form>
        <h4>検索結果</h4>
-       <div class = "result" style = "display:flex;">
-         
-         <div style = "display: flex;flex-direction: column;">
+       <div class = "results">
+         <div class = "result">
             @if(!empty($company_name))
-              <h4 style = "margin:0px;">会社名</h4>
-              <h4 style = "margin:0px;">{{$company_name}}</h4>
+              <h4>会社名</h4>
+              <h4>{{$company_name}}</h4>
             @endif
          </div>
-         <div style = "display: flex;flex-direction: column;">
+         <div class = "result">
             @if(!empty($job))
-              <h4 style = "margin:0px;">職種</h4>
-              <h4 style = "margin:0px;">{{$job}}</h4>
+              <h4>職種</h4>
+              <h4>{{$job}}</h4>
             @endif
          </div>
-         <div style="display: flex;flex-direction: column;">
+         <div class = "result">
             @if(!empty($before_entry_data))
-              <h4 style="margin:0px;">エントリー日付</h4>
-              <h4 style="margin:0px;">{{$before_entry_data}}</h4>
+              <h4>エントリー日付</h4>
+              <h4>{{$before_entry_data}}</h4>
             @endif
          </div>
-         <div style="display: flex;flex-direction: column;">
+         <div class = "result">
             @if(!empty($before_start_data))
-              <h4 style="margin:0px;">業務開始日</h4>
-              <h4 style="margin:0px;">{{$before_start_data}}</h4>
+              <h4>業務開始日</h4>
+              <h4>{{$before_start_data}}</h4>
             @endif
          </div>
        </div>
