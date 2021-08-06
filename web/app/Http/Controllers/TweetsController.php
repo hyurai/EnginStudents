@@ -93,7 +93,6 @@ class TweetsController extends Controller
 
         foreach($skills as $skillname){
           if(!empty($skillname)){
-              dd($skillname);
           $skill = Skill::firstOrCreate(['name' => $skillname]);
           }
          }
