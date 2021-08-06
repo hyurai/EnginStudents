@@ -24,6 +24,7 @@
               <div style = "display:flex;">
                 <input type="text" name = "company_name">
                 <select name="job">
+                  <option hidden value = "">エンジニアの種類を選択してください</option>
                   <option value="frontend">フロントエンド</option>
                   <option value="backend">バックエンド</option>
                   <option value="infra">インフラ</option>
