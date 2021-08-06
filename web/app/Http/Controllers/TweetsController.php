@@ -68,6 +68,7 @@ class TweetsController extends Controller
         $tweet->start_data = $request->start_data;
         $tweet->end_data = $request->end_data;
         $skills = $request->skills;
+
         
         preg_match_all('/#([a-zA-z0-9０-９ぁ-んァ-ヶ亜-熙]+)/u', $request->text, $match);
         $replace_text = preg_replace('/#([a-zA-z0-9０-９ぁ-んァ-ヶ亜-熙]+)/u','',$request->text);
@@ -88,18 +89,25 @@ class TweetsController extends Controller
             $tweethastagrealtion->hashtag_id = $tag->id;
             $tweethastagrealtion->save();
         }
+      
 
         foreach($skills as $skillname){
-            $skill = Skill::firstOrCreate(['name' => $skillname]);
-        }
+          if(!empty($skillname)){
+              dd($skillname);
+          $skill = Skill::firstOrCreate(['name' => $skillname]);
+          }
+         }
         foreach($skills as $skillname){
+         if(!empty($skillname)){
             $skill = Skill::where('name',$skillname)->first();
             $tweetskillrelation = new TweetSkillRelation;
             $tweetskillrelation->tweet_id = $tweet->id;
             $tweetskillrelation->skill_id = $skill->id;
             $tweetskillrelation->save();
+         }
         }
-
+     
+        
         return redirect('/tweet');
     }
     public function show($id)
