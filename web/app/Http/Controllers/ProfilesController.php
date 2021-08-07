@@ -30,9 +30,10 @@ class ProfilesController extends Controller
         
         $front_img =  $request->file('front_img');
         $back_img = $request->file('back_img');
+    
 
-        $front_path = Storage::disk('s3')->putFile("profile/{$id}",$front_img,'public');
-        $back_path = Storage::disk('s3')->putFile("profile/{$id}",$back_img,'public');
+        $front_path = Storage::disk('s3')->putFile("personal/{{$profile->id}}",$front_img,'public');
+        $back_path = Storage::disk('s3')->putFile("/personal/{{$profile->id}}",$back_img,'public');
 
         $profile->front_img = Storage::disk('s3')->url($front_path);
         $profile->back_img = Storage::disk('s3')->url($back_path);
@@ -47,12 +48,13 @@ class ProfilesController extends Controller
         foreach($before_profile_icon_relations as $before_profile_icon_relation){
             $before_profile_icon_relation->delete();
         }
-
-        foreach($profile_icons as $profile_icon){
-            $profileiconrelation = new ProfileIconRelation;
-            $profileiconrelation->profile_id = $profile->id;
-            $profileiconrelation->icon_id = $profile_icon;
-            $profileiconrelation->save();
+        if(!empty($profile_icons)){
+          foreach($profile_icons as $profile_icon){
+                $profileiconrelation = new ProfileIconRelation;
+                $profileiconrelation->profile_id = $profile->id;
+                $profileiconrelation->icon_id = $profile_icon;
+                $profileiconrelation->save();
+          }
         }
 
        

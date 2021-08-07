@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use App\Models\Profile;
+use Storage;
 
 class RegisteredUserController extends Controller
 {
@@ -49,10 +50,18 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         Auth::login($user);
+        
+        $aaa = storage_path('download.png');
+        $initialvalue_path = Storage::disk('s3')->putFile("/logo",$aaa,'public');
+        $aaaaa = Storage::disk('s3')->url($initialvalue_path);
 
-        $profile = Profile::create([
-            'user_id' => $user->id,
-            ]);
+       
+
+        $profile = new Profile;
+        $profile->user_id = $user->id;
+        $profile->front_img = $aaaaa;
+        $profile->save();
+        
 
         return redirect('/tweet');
     }
