@@ -60,7 +60,7 @@
                    <input type="submit" value = "&#xf004;" class = "like_delete_button">
                  </form>
                @endif
-               <a href="/tweet/{{$tweet->id}}" class = "tweet_show"><i class="fas fa-comments"></i></a>
+               <a href="/tweet/{{$tweet->id}}" class = "js-modal-open-subview" data-target="modal-subview"><i class="fas fa-comments"></i></a>
                @if($tweet->user_id == Auth::id())
                  <form action="/tweet/{{$tweet->id}}" method = "post" class = "tweet_delete_form">
                    @csrf

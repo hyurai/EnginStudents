@@ -4,6 +4,8 @@
   <link rel="stylesheet" href="{{ asset('css/icon.css') }}">
   <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
   <link rel="stylesheet" href="{{ asset('css/components.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/subview.css') }}">
+
 
 
 
@@ -15,6 +17,8 @@
   <script src = "{{ asset('js/tweet.js') }}"></script>
   <script src = "{{ asset('js/icon.js') }}"></script>
   <script src = "{{ asset('js/profile.js') }}"></script>
+  <script src = "{{ asset('js/subview.js') }}"></script>
+
 
 
 </body>
