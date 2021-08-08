@@ -37,55 +37,8 @@
         </div>
       </div>
     </div>
+    @inclue('subview/modal',['target' => 'profile_show'])
   </div>
 </div>
-
-<div id = "modal-profile" class = "c-modal-profile js-modal-profile">
-        <div class="c-modal_bg-profile js-modal-close-profile"></div>
-        <div class = "c-modal_content-profile _lg-profile">
-          <div class = "c-modal_content_inner-profile">
-            <a class = "js-modal-close-profile c-modal_close-profile" href=""><span>閉じる</span></a>
-
-
-
-
-
-
-            <div class = "personal-page" style = "display:flex;">
-            <form action="/profile/{{$profile->id}}" method = "post" style = "display:flex;" enctype="multipart/form-data">
-            @csrf
-            @method('PUT')
-              <div class = "back_info">
-                <div style = "width:400px;height:300px;">
-                  <label><input type="file" name="back_img" id = "myImage" accept="image/*" style = "display:none;"><img src = "{{$profile->back_img}}" id = "preview" style = "width:100%;height:100%;"></label>
-                </div>
-              </div>
-              <div class = "front_info">
-                <div style = "display:flex;">
-                  <div style = "width:100px;height:100px;">
-                  <label><input type="file" name="front_img" id = "front_myImage" accept="image/*" style = "display:none;"><img src = "{{$profile->front_img}}" id = "front_preview" style = "width:100%;height:100%;border-radius:50%;"></label>
-
-                  </div>
-                  <input type="text" name = "name" value = "{{$user->name}}">
-                </div>
-                <div>
-                 <p>GitHubURLorURL</p>
-                 <input type="text" name = "url" value = "{{$profile->url}}">
-                 <p>一言コメント</p>
-                 <input type="text" name = "one_word_comment" value = "{{$profile->one_word_comment}}">
-                </div>
-                <div>
-                  @foreach($icons as $icon)
-                  <input type="checkbox" name = "icons[]" value = "{{$icon->id}}"><p class = "fab {{$icon->icon_class}}">{{$icon->icon_name}}</p>
-                  @endforeach
-                </div>
-              </div>
-              <input type="submit" value = "アップデート">
-            </form>
-            </div>
-  
-          </div>
-        </div>
-        </div>
 
 @endsection

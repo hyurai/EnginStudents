@@ -11,29 +11,8 @@
        @slot('tweet',$tweet)
        @slot('profiles',$profiles)
       @endcomponent
-
-        <div id = "modal-comment" class = "c-modal-comment js-modal-comment">
-        <div class="c-modal_bg-comment js-modal-close-comment"></div>
-        <div class = "c-modal_content-comment _lg-comment">
-          <div class = "c-modal_content_inner-comment">
-            <a class = "js-modal-close-comment c-modal_close-comment" href=""><span>閉じる</span></a>
-            <form action="/tweet/comment" method = "post">
-              @csrf
-              <input type="hidden" name = "user_id" value = "{{Auth::id()}}">
-              <input type="hidden" name = "tweet_id" value = "{{$tweet->id}}">
-              <input type="text" name = "comment">
-              <input type="submit" value = "追加">
-            </form>
-          </div>
-        </div>
-        </div>
-
-
-
-
-
-
-        @foreach($comments as $comment)
+      @inclue('subview/modal',['target' => 'tweet_show'])
+      @foreach($comments as $comment)
         <div style = "border: solid 3px #000000;padding:20px;margin-right:120px;margin-left:120px;" style = "margin-bottom:20px;">
           <div style = "width:100%;display:flex;">
           <div class = "top-infomation" style = "width:10%;">
@@ -49,7 +28,7 @@
           </div>
           </div>
         </div>
-        @endforeach
+      @endforeach
     </div>
   </div>
 </div>
