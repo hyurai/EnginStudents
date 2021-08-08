@@ -11,6 +11,8 @@
        @slot('tweets',$tweets)
        @slot('profiles',$profiles)
       @endcomponent
+      @include('subview/modal',['target' => 'side'])
+
     </div>
   </div>
 
